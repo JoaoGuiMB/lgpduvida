@@ -68,5 +68,7 @@ class Index:
                 tf = article.term_frequency(token)
                 idf = self.inverse_article_frequency(token)
                 score += tf * idf
-            results.append((article, score))
-        return sorted(results, key=lambda article: article[1], reverse=True)
+                article.score = score
+                
+            results.append(article)
+        return sorted(results, key=lambda article: article.score, reverse=True)

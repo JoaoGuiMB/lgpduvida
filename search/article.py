@@ -1,3 +1,4 @@
+from ast import Num
 from dataclasses import dataclass
 from collections import Counter
 
@@ -9,6 +10,7 @@ from search.analysis import analyze
 class Article:
     articleNumber: int
     text: str
+    score: float
 
     @property
     def fulltext(self):

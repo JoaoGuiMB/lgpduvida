@@ -7,4 +7,4 @@ def load_articles():
     articles = json.load(file)  
 
     for _, article in enumerate(articles):
-       yield Article(articleNumber=article['articleNumber'], text=article['text'])
+       yield Article(articleNumber=article['articleNumber'], text=article['text'], score=0)
