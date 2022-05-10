@@ -13,6 +13,7 @@ def index_article(articles, index):
 index = index_article(load_articles(),  Index())
 print(f'Index contains {len(index.articles)} articles')
 
+
 @app.route("/query", methods=["POST"] )
 def query():
     query = request.json['query']
