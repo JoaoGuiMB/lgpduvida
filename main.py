@@ -4,6 +4,7 @@ from search.index import Index
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
+app.run(host='0.0.0.0', port=5000)
 
 def index_article(articles, index):
     for article in articles:
