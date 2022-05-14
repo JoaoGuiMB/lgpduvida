@@ -1,7 +1,7 @@
 from load import load_articles
 from search.index import Index
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, abort
 
 app = Flask(__name__)
 
@@ -19,5 +19,8 @@ def query():
     query = request.json['query']
 
     print(f'Index contains {len(index.articles)} articles')
+    
     results = index.search(query, rank=True)
+    if(len(results) == 0):
+        return abort(404)
     return jsonify({ "articles": results })
