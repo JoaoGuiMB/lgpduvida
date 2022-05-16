@@ -31,7 +31,7 @@ class Index:
         return [self.index.get(token, set()) for token in analyzed_query]
 
     @timing
-    def search(self, query, search_type='AND', rank=False):
+    def search(self, query, search_type='OR', rank=False):
         """
         Search; this will return articles that contain words from the query,
         and rank them if requested (sets are fast, but unordered).
@@ -71,4 +71,4 @@ class Index:
                 article.score = score
                 
             results.append(article)
-        return sorted(results, key=lambda article: article.score, reverse=True)
+        return sorted(results, key=lambda article: article.score, reverse=False)
