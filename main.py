@@ -20,7 +20,7 @@ def query():
 
     print(f'Index contains {len(index.articles)} articles')
     
-    results = index.search(query, rank=True)
+    results = index.search(query, rank=True)[:3]
     if(len(results) == 0):
         return abort(404)
     return jsonify({ "articles": results })
