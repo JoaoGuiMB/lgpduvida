@@ -19,7 +19,7 @@ class Index:
             self.index[token].add(article.articleNumber)
 
     def article_frequency(self, token):
-        return len(self.index.get(token, set()))
+        return len(self.index.get(token, set())) if len(self.index.get(token, set())) != 0 else 1
 
     def inverse_article_frequency(self, token):
         # Manning, Hinrich and Schütze use log10, so we do too, even though it
@@ -31,7 +31,7 @@ class Index:
         return [self.index.get(token, set()) for token in analyzed_query]
 
     @timing
-    def search(self, query, search_type='OR', rank=False):
+    def search(self, query, search_type='AND', rank=False):
         """
         Search; this will return articles that contain words from the query,
         and rank them if requested (sets are fast, but unordered).
