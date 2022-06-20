@@ -10,7 +10,7 @@ Firstly, each article of the official brazilian General Data Protection Regulati
 
 Then the query text (user's doubt) will pass through the same process and be compared with the articles and ranked by the term frequency.
 
-To improve the scoring algorithm, it's necessary to compute the inverse document frequency for a term by dividing the number of documents (N) in the index by the amount of documents that contain the term, and take a logarithm of that, then simply multiple the term frequency with the inverse document frequency during our ranking, so matches on terms that are rare in the corpus will contribute more to the relevancy score.
+To improve the scoring algorithm, it's necessary to compute the inverse articles frequency for a term by dividing the number of articles (N) in the index by the amount of articles that contain the term, and take a logarithm of that, then simply multiple the term frequency with the inverse article frequency during our ranking, so matches on terms that are rare in the article text will contribute more to the relevancy score.
 
 The chatbot itself was developed using the low code platform [Blip](https://www.take.net/blip/)
 
